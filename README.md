@@ -56,9 +56,9 @@ $ ../node_modules/.bin/mocha --reporter mochawesome
 ```
 注意：上面代码中，mocha命令使用了项目内安装的版本，而不是全局安装的版本，因为mochawesome模块是安装在项目内的。
 
-测试报告在目录mochaawesome-reports下。
+测试报告在目录mochawesome-reports下。
 
-![Alt text](image/mochawesome测试报告.png)
+![Alt text](/image/mochawesome测试报告.png)
 
 3. 其它方式
 
