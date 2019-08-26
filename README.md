@@ -58,6 +58,8 @@ $ ../node_modules/.bin/mocha --reporter mochawesome
 
 测试报告在目录mochaawesome-reports下。
 
+![Alt text](image/mochawesome测试报告.png)
+
 3. 其它方式
 
 
