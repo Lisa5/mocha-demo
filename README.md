@@ -130,7 +130,7 @@ $ mocha test/unit/*.js
 
 ```
 $ npm install --save-dev mochawesome
-$ ../node_modules/.bin/mocha --reporter mochawesome
+$ node_modules/.bin/mocha --reporter mochawesome
 ```
 
 注意：上面代码中，mocha命令使用了项目内安装的版本，而不是全局安装的版本，因为mochawesome模块是安装在项目内的。
