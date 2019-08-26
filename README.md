@@ -139,8 +139,56 @@ $ ../node_modules/.bin/mocha --reporter mochawesome
 
 ![Alt text](/image/mochawesome测试报告.png)
 
-3). 其它方式
 
+## 四、ES6测试
+> ES6测试脚本，需要先用Babel转码
+
+如下es6测试脚本：
+
+```
+import add from '../add.js';
+import chai from 'chai';
+
+let assert = chai.assert;
+
+describe('加法的测试：add 方法', function(){
+  it('1加1应该等于2', function(){
+    let total = add(1, 1);
+    // 1+1应该等于2
+    assert.equal(total, 2);
+    // 应该返回一个数字
+    assert.typeOf(total, 'number');
+  });
+})
+```
+
+安装babel
+
+```
+$ npm install babel-core babel-preset-es2015 --save-dev
+```
+
+根目录下新建.babelrc配置文件
+
+```
+{
+  "presets": [ "es2015" ]
+}
+```
+
+执行es6脚本：
+* src/demo001 为我的测试脚本文件夹
+* 使用 --require 指定测试脚本的转码器。babel6为： babel-core/register
+
+```
+node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
+```
+
+## 五、 总结
+
+本文为学习总结，欢迎大家批评指正~
+
+[demo地址](https://github.com/Lisa5/mocha-demo.git)
 
 
 
