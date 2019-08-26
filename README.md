@@ -1,9 +1,20 @@
 # mocha-demo
 旨在学习mocha，自己上手写测试用例，并记录总结学习成果。
 
+Mocha（发音“摩卡”），诞生于2011年，是现在最流行的JS测试框架之一，在浏览器和node环境都可以使用。
+
+单元测试课帮助我们提高代码质量，减少bug。
+
+本文默认已经安装全局mocha。
+
+若没有安装：
+```
+$ npm install -global mocha
+```
 
 ## 一、简单的单元测试
 >加法测试：src/add.js
+
 ```
 function add(a, b) {
   return a + b;
@@ -11,6 +22,7 @@ function add(a, b) {
 
 module.exports = add;
 ```
+
 ```
 var add = require('./add.js');
 var assert = require('chai').assert;
@@ -79,8 +91,6 @@ describe('加法的测试：add 方法', function(){
   });
 })
 ```
-
-
 
 ### 4. expect 断言
 >src/addExpect.test.js
@@ -184,7 +194,12 @@ $ npm install babel-core babel-preset-es2015 --save-dev
 node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
 ```
 
-## 五、 总结
+
+## 五、异步测试
+未完待续......
+
+
+## 六、 总结
 
 本文为学习总结，欢迎大家批评指正~
 
