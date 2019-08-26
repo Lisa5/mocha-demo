@@ -1,0 +1,155 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2019-08-26T05:44:52.229Z",
+    "end": "2019-08-26T05:44:52.242Z",
+    "duration": 13,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "09658af7-dbfe-47a8-b360-44cb5f046b92",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [],
+    "suites": [
+      {
+        "uuid": "6202c430-93e0-4c70-9c90-a749433f3a43",
+        "title": "加法的测试：add 方法",
+        "fullFile": "/Users/yanwang508/Desktop/Lisa/Mocha/mocha-demo/src/addAssert.test.js",
+        "file": "/src/addAssert.test.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "1加1应该等于2",
+            "fullTitle": "加法的测试：add 方法 1加1应该等于2",
+            "timedOut": false,
+            "duration": 1,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var total = add(1, 1);\n// 1+1应该等于2\nassert.equal(total, 2);\n// 应该返回一个数字\nassert.typeOf(total, 'number');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "34e4bc5f-1b1f-4efc-85ad-85b6ae74a0aa",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "34e4bc5f-1b1f-4efc-85ad-85b6ae74a0aa"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 1,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "43752cd1-74d8-4621-bdef-34dd4cfc5d0e",
+        "title": "加法的测试：add 方法",
+        "fullFile": "/Users/yanwang508/Desktop/Lisa/Mocha/mocha-demo/src/addExpect.test.js",
+        "file": "/src/addExpect.test.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "1加1应该等于2",
+            "fullTitle": "加法的测试：add 方法 1加1应该等于2",
+            "timedOut": false,
+            "duration": 0,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var total = add(1, 1);\n// 结果应该等于2\nexpect(total).equal(2);",
+            "err": {},
+            "isRoot": false,
+            "uuid": "bf2a9413-4292-45ae-baca-b6528b59d579",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "bf2a9413-4292-45ae-baca-b6528b59d579"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      },
+      {
+        "uuid": "642da499-3a77-4052-a74d-edacc1ab2474",
+        "title": "加法的测试：add 方法",
+        "fullFile": "/Users/yanwang508/Desktop/Lisa/Mocha/mocha-demo/src/addShould.test.js",
+        "file": "/src/addShould.test.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "1加1应该等于2",
+            "fullTitle": "加法的测试：add 方法 1加1应该等于2",
+            "timedOut": false,
+            "duration": 0,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "var total = add(1, 1);\n// 结果应该存在\ntotal.should.exist;\n// 结果应该等于2\ntotal.should.equal(2);\n// 结果应该不等于0\ntotal.should.not.equal(0);\n// 应该返回数字\ntotal.should.be.a('number');",
+            "err": {},
+            "isRoot": false,
+            "uuid": "d4af5024-05f8-4749-ae46-8bad565d6de8",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "d4af5024-05f8-4749-ae46-8bad565d6de8"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 0,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 2000
+      }
+    ],
+    "passes": [],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 0,
+    "root": true,
+    "rootEmpty": true,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2019
+}
