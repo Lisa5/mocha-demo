@@ -1,4 +1,4 @@
-describe("Demo2", function(){
+describe("Demo", function(){
   describe("方法 1", function(){
       context("情境 1", function(){
           before(function(){
@@ -26,7 +26,4 @@ describe("Demo2", function(){
 /***
  * 测试脚本，可独立执行
  * 测试脚本里面应该包括一个或多个describe块，每个describe块应该包括一个或多个it块。
- * 
- * 
- * 
  */
