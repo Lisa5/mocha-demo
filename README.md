@@ -1,4 +1,5 @@
-# mocha-demo
+
+# modha-demo
 旨在学习mocha，自己上手写测试用例，并记录总结学习成果。[demo地址](https://github.com/Lisa5/mocha-demo.git)
 
 Mocha（发音“摩卡”），诞生于2011年，是现在最流行的JS测试框架之一，在浏览器和node环境都可以使用。
@@ -24,6 +25,7 @@ module.exports = add;
 ```
 
 ```
+
 var add = require('./add.js');
 var assert = require('chai').assert;
 
@@ -36,6 +38,7 @@ describe('加法的测试：add 方法', function(){
     assert.typeOf(total, 'number');
   });
 })
+
 ```
 
 ## 二、断言库的用法
@@ -55,6 +58,7 @@ npm i chai
 >src/addAssert.test.js
 
 ```
+
 var add = require('./add.js');
 var assert = require('chai').assert;
 
@@ -67,6 +71,7 @@ describe('加法的测试：add 方法', function(){
     assert.typeOf(total, 'number');
   });
 })
+
 ```
 
 
@@ -74,6 +79,7 @@ describe('加法的测试：add 方法', function(){
 >src/addShould.test.js
 
 ```
+
 var add = require('./add.js');
 var should = require('chai').should();
 
@@ -90,12 +96,14 @@ describe('加法的测试：add 方法', function(){
     total.should.be.a('number');
   });
 })
+
 ```
 
 ### 4. expect 断言
 >src/addExpect.test.js
 
 ```
+
 var add = require('./add.js');
 var expect = require('chai').expect;
 
@@ -106,6 +114,7 @@ describe('加法的测试：add 方法', function(){
     expect(total).equal(2);
   });
 })
+
 ```
 
 
@@ -156,6 +165,7 @@ $ node_modules/.bin/mocha --reporter mochawesome
 如下es6测试脚本：
 
 ```
+
 import add from '../add.js';
 import chai from 'chai';
 
@@ -170,6 +180,7 @@ describe('加法的测试：add 方法', function(){
     assert.typeOf(total, 'number');
   });
 })
+
 ```
 
 安装babel
@@ -202,6 +213,7 @@ $ node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
 > Mocha默认每个测试用例最多执行2000毫秒，如果到时没有得到结果，就报错。对于涉及异步操作的测试用例，这个时间往往是不够的，需要用-t或--timeout参数指定超时门槛。
 
 ```
+
 var expect = require('chai').expect;
 
 it('测试应该4000毫秒后结束', function(done) {
@@ -213,6 +225,7 @@ it('测试应该4000毫秒后结束', function(done) {
     done(); // 通知Mocha测试结束
   }, 3000);
 });
+
 ```
 
 上面的测试脚本需要在3000毫秒后才运行，所以需要设置-t或者-timeout参数来改变默认时间限制（2000ms）。
@@ -230,6 +243,7 @@ $ mocha src/demo002 -t 4000
 但是，pormise除外，看下面这个例子: src/demo002/sync.test.js。
 
 ```
+
 var expect = require('chai').expect;
 global.fetch = require('node-fetch'); // Jest UT是在Node下进行的测试，默认是没有导入fetch,需要手动引入
 
@@ -241,6 +255,7 @@ it('异步请求应该返回一个对象', function() {
       expect(json).to.be.an('object');
     });
 });
+
 
 ```
 
@@ -274,6 +289,7 @@ function add(a, b) {
 在自动生成的test.spec.js中写相应的测试脚本：
 
 ```
+
 var should = chai.should();
 
 describe('加法的测试：add 方法', function(){
@@ -293,22 +309,25 @@ describe('加法的测试：add 方法', function(){
     total.should.be.a('number');
   });
 })
+
 ```
 
 最后在index.html中引入断言库chai.js，源码文件add.js以及测试脚本test.spec.js
 
 ```
+
 <body>
-    <div id="mocha"></div>
-    <script src="mocha.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="http://chaijs.com/chai.js"></script>
-    <script src="add.js"></script>
-    <script src="tests.spec.js"></script>
-    <script>
-      mocha.run();
-    </script>
-  </body>
+  <div id="mocha"></div>
+  <script src="mocha.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="http://chaijs.com/chai.js"></script>
+  <script src="add.js"></script>
+  <script src="tests.spec.js"></script>
+  <script>
+    mocha.run();
+  </script>
+</body>
+
 ```
 
 浏览器打开index.html,可看到测试报告。
@@ -320,13 +339,4 @@ describe('加法的测试：add 方法', function(){
 本文为学习总结，欢迎大家批评指正~
 
 [demo地址](https://github.com/Lisa5/mocha-demo.git)
-
-
-
-
-
-
-
-
-
 
