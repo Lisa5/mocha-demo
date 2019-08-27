@@ -1,9 +1,20 @@
 # mocha-demo
-旨在学习mocha，自己上手写测试用例，并记录总结学习成果。
+旨在学习mocha，自己上手写测试用例，并记录总结学习成果。[demo地址](https://github.com/Lisa5/mocha-demo.git)
 
+Mocha（发音“摩卡”），诞生于2011年，是现在最流行的JS测试框架之一，在浏览器和node环境都可以使用。
+
+单元测试可帮助我们提高代码质量，减少bug。
+
+本文默认已经安装全局mocha。
+
+若没有安装：
+```
+$ npm install -global mocha
+```
 
 ## 一、简单的单元测试
 >加法测试：src/add.js
+
 ```
 function add(a, b) {
   return a + b;
@@ -11,6 +22,7 @@ function add(a, b) {
 
 module.exports = add;
 ```
+
 ```
 var add = require('./add.js');
 var assert = require('chai').assert;
@@ -79,8 +91,6 @@ describe('加法的测试：add 方法', function(){
   });
 })
 ```
-
-
 
 ### 4. expect 断言
 >src/addExpect.test.js
@@ -184,6 +194,7 @@ $ npm install babel-core babel-preset-es2015 --save-dev
 $ node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
 ```
 
+
 注意：上面代码中，mocha命令使用了项目内安装的版本，而不是全局安装的版本。
 
 
@@ -245,11 +256,66 @@ Mocha内置对Promise的支持，允许直接返回Promise，等到它的状态�
 ## 六、浏览器测试
 > Mocha 还支持在浏览器运行。
 
+首先，mocha init 命令生成初始化文件
+```
+mocha init demo003
+```
 
+然后添加源码文件add.js
 
+```
 
+function add(a, b) {
+  return a + b;
+}
 
-## 六、 总结
+```
+
+在自动生成的test.spec.js中写相应的测试脚本：
+
+```
+var should = chai.should();
+
+describe('加法的测试：add 方法', function(){
+  var total = add(1, 1);
+  it('1加1应该等于2', function(){
+    // 结果应该存在
+    total.should.exist;
+    // 结果应该等于2
+    total.should.equal(2);
+  });
+  it('1加1应该不等于0', function(){
+    // 结果应该不等于0
+    total.should.not.equal(0);
+  });
+  it('结果应该返回数字', function(){
+    // 应该返回数字
+    total.should.be.a('number');
+  });
+})
+```
+
+最后在index.html中引入断言库chai.js，源码文件add.js以及测试脚本test.spec.js
+
+```
+<body>
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="http://chaijs.com/chai.js"></script>
+    <script src="add.js"></script>
+    <script src="tests.spec.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+```
+
+浏览器打开index.html,可看到测试报告。
+
+![Alt text](/image/浏览器测试报告.png)
+
+## 七、 总结
 
 本文为学习总结，欢迎大家批评指正~
 
