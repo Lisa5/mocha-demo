@@ -1,0 +1,32 @@
+{
+  "name": "mocha-demo",
+  "version": "1.0.0",
+  "description": "旨在学习mocha，自己上手写测试用例，并记录总结学习成果。",
+  "main": "test.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.2.0",
+    "mochawesome": "^3.0.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lisa5/mocha-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lisa5/mocha-demo/issues"
+  },
+  "homepage": "https://github.com/Lisa5/mocha-demo#readme"
+}

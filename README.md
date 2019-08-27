@@ -181,14 +181,73 @@ $ npm install babel-core babel-preset-es2015 --save-dev
 * 使用 --require 指定测试脚本的转码器。babel6为： babel-core/register
 
 ```
-node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
+$ node_modules/mocha/bin/mocha src/demo001 --require babel-core/register
 ```
 
-## 五、 总结
+注意：上面代码中，mocha命令使用了项目内安装的版本，而不是全局安装的版本。
+
+
+## 五、异步测试
+> Mocha默认每个测试用例最多执行2000毫秒，如果到时没有得到结果，就报错。对于涉及异步操作的测试用例，这个时间往往是不够的，需要用-t或--timeout参数指定超时门槛。
+
+```
+var expect = require('chai').expect;
+
+it('测试应该4000毫秒后结束', function(done) {
+  var x = true;
+  
+  setTimeout(function() {
+    x = false;
+    expect(x).to.be.not.ok;
+    done(); // 通知Mocha测试结束
+  }, 3000);
+});
+```
+
+上面的测试脚本需要在3000毫秒后才运行，所以需要设置-t或者-timeout参数来改变默认时间限制（2000ms）。
+
+```
+$ mocha src/demo002 -t 4000
+```
+
+通过命令 -t 4000 设置超时时间为4000毫秒。
+
+
+观察上面的测试脚本，不难发现多了done函数。
+对于异步测试，在it块执行的时候，传入一个done参数，当测试结束的时候，必须显式调用这个函数，否则，Mocha就无法知道，测试是否结束，会一直等到超时报错。
+
+但是，pormise除外，看下面这个例子: src/demo002/sync.test.js。
+
+```
+var expect = require('chai').expect;
+global.fetch = require('node-fetch'); // Jest UT是在Node下进行的测试，默认是没有导入fetch,需要手动引入
+
+it('异步请求应该返回一个对象', function() {
+  return fetch('https://api.github.com')
+    .then(function(res) {
+      return res.json();
+    }).then(function(json) {
+      expect(json).to.be.an('object');
+    });
+});
+
+```
+
+执行
+
+```
+$ mocha src/demo002/sync.test.js
+```
+
+Mocha内置对Promise的支持，允许直接返回Promise，等到它的状态改变，再执行断言，而不用显式调用done方法
+
+
+## 六、 总结
 
 本文为学习总结，欢迎大家批评指正~
 
 [demo地址](https://github.com/Lisa5/mocha-demo.git)
+
 
 
 
