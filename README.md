@@ -242,6 +242,13 @@ $ mocha src/demo002/sync.test.js
 Mocha内置对Promise的支持，允许直接返回Promise，等到它的状态改变，再执行断言，而不用显式调用done方法
 
 
+## 六、浏览器测试
+> Mocha 还支持在浏览器运行。
+
+
+
+
+
 ## 六、 总结
 
 本文为学习总结，欢迎大家批评指正~
