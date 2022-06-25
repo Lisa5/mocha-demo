@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "mochawesome": "^3.0.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
